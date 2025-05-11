@@ -38,11 +38,24 @@ function addMessage(role, content) {
     
     if (role === 'user') {
         messageDiv.classList.add('user-message');
-        messageDiv.textContent = '你: ' + content; // 用户输入保持纯文本
+        messageDiv.textContent = '你: ' + content;
     } else if (role === 'assistant') {
         messageDiv.classList.add('ai-message');
-        messageDiv.innerHTML = 'AI: ' + marked.parse(content); // 使用 marked 解析 Markdown
-        messageDiv.classList.add('markdown-body'); // 添加 Markdown 样式类
+        messageDiv.innerHTML = 'AI: ' + marked.parse(content);
+        messageDiv.classList.add('markdown-body');
+        
+        // 延迟渲染数学公式，确保 DOM 已更新
+        setTimeout(() => {
+            renderMathInElement(messageDiv, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }, 0);
     } else {
         messageDiv.style.textAlign = 'center';
         messageDiv.style.color = '#666';
@@ -52,7 +65,6 @@ function addMessage(role, content) {
     chatContainer.appendChild(messageDiv);
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
-
 // 发送消息到 AI
 async function sendMessage() {
     const message = userInput.value.trim();
