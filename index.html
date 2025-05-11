@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点桃Ai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>免费ai对话平台</h1>
+        
+        <div class="settings">
+            <div class="setting-item">
+                <label for="temperature">Temperature:</label>
+                <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                <span id="temperature-value">0.7</span>
+            </div>
+            <div class="setting-item">
+                <label for="model-select">AI 模型:</label>
+                <select id="model-select">
+                    <option value="deepseek/deepseek-prover-v2:free">DeepSeek Prover V2(数学推理)</option>
+                    <option value="deepseek/deepseek-chat-v3-0324:free">DeepSeek V3</option>
+                    <option value="qwen/qwen3-235b-a22b:free">Qwen3</option>
+                    <option value="deepseek/deepseek-r1:free">DeepSeek R1</option>
+                </select>
+            </div>
+            <button id="clear-context">清空上下文</button>
+        </div>
+        
+        <div class="chat-container" id="chat-container">
+            <!-- 对话内容将在这里显示 -->
+        </div>
+        
+        <div class="input-area">
+            <textarea id="user-input" placeholder="输入你的问题..."></textarea>
+            <button id="send-button">发送</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
