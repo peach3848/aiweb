@@ -150,3 +150,19 @@
     background-color: #e1e4e8;
     border: 0;
 }
+/* 数学公式样式 */
+.katex {
+    font-size: 1.1em;
+}
+
+.katex-display {
+    margin: 1em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.katex-display > .katex {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.5em 0;
+}
