@@ -38,10 +38,11 @@ function addMessage(role, content) {
     
     if (role === 'user') {
         messageDiv.classList.add('user-message');
-        messageDiv.textContent = '你: ' + content;
+        messageDiv.textContent = '你: ' + content; // 用户输入保持纯文本
     } else if (role === 'assistant') {
         messageDiv.classList.add('ai-message');
-        messageDiv.textContent = 'AI: ' + content;
+        messageDiv.innerHTML = 'AI: ' + marked.parse(content); // 使用 marked 解析 Markdown
+        messageDiv.classList.add('markdown-body'); // 添加 Markdown 样式类
     } else {
         messageDiv.style.textAlign = 'center';
         messageDiv.style.color = '#666';
