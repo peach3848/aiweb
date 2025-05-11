@@ -12,7 +12,7 @@
         
         <div class="settings">
             <div class="setting-item">
-                <label for="temperature">Temperature:</label>
+                <label for="temperature">Temperature（建议调至1.3）:</label>
                 <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
                 <span id="temperature-value">0.7</span>
             </div>
@@ -25,7 +25,7 @@
                     <option value="deepseek/deepseek-r1:free">DeepSeek R1</option>
                 </select>
             </div>
-            <button id="clear-context">清空上下文</button>
+            <button id="clear-context">清空上下文</button><br /><p>AI使用时可能会出现消息未收到的情况，可以重发送一次，切换模型时请清除上下文</p>
         </div>
         
         <div class="chat-container" id="chat-container">
